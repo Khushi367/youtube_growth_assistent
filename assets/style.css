@@ -1,0 +1,171 @@
+/* ---------------------------------------------------------------
+   YouTube Growth Assistant - Custom Streamlit Styling
+   Animated gradient background, KPI cards, growth badges, etc.
+------------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Animated gradient background for the whole app */
+.stApp {
+    background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1e1b4b);
+    background-size: 400% 400%;
+    animation: gradientShift 18s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Sidebar styling */
+section[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #1e1b4b 0%, #302b63 100%);
+    border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+section[data-testid="stSidebar"] * {
+    color: #f1f1f5 !important;
+}
+
+/* Fade-in animation for main content blocks */
+.main .block-container {
+    animation: fadeInUp 0.6s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+p, span, label, .stMarkdown {
+    color: #e5e5f0;
+}
+
+/* KPI Card */
+.kpi-card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 18px 20px;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(255, 0, 90, 0.25);
+}
+
+.kpi-value {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #ff2d55;
+    margin: 4px 0;
+}
+
+.kpi-label {
+    font-size: 0.85rem;
+    color: #b8b8d1;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* Growth prediction badge */
+.growth-badge {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.03em;
+    animation: pulseGlow 2.2s ease-in-out infinite;
+}
+
+.growth-high {
+    background: linear-gradient(90deg, #00c853, #64dd17);
+    color: #04270f;
+}
+
+.growth-medium {
+    background: linear-gradient(90deg, #ffab00, #ffd600);
+    color: #3a2900;
+}
+
+.growth-low {
+    background: linear-gradient(90deg, #ff5252, #ff1744);
+    color: #2a0000;
+}
+
+@keyframes pulseGlow {
+    0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.25); }
+    70%  { box-shadow: 0 0 0 14px rgba(255,255,255,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+
+/* Hashtag chips */
+.hashtag-chip {
+    display: inline-block;
+    background: rgba(255, 45, 85, 0.15);
+    border: 1px solid rgba(255, 45, 85, 0.4);
+    color: #ff7597 !important;
+    padding: 6px 14px;
+    margin: 4px 6px 4px 0;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Buttons */
+.stButton > button {
+    background: linear-gradient(90deg, #ff2d55, #ff6a88);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 0.55em 1.4em;
+    font-weight: 600;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 18px rgba(255, 45, 85, 0.35);
+    color: white;
+}
+
+/* Card container for forms/sections */
+.section-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    padding: 24px;
+    margin-bottom: 18px;
+}
+
+/* Login/Register container */
+.auth-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff2d55, #ff9a8b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.2em;
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: #b8b8d1;
+    margin-bottom: 1.6em;
+}
